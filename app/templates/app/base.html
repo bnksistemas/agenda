@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda BNK sistemas</title>
+  <!-- Enlaces a los archivos CSS de Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  {% load static %}
+
+  {% block css %}
+  {% endblock %}
+  <!-- <link rel="stylesheet" href="{% static 'app/css/estilos.css' %}"> -->
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'bnk.png' %}" alt="Logo" class="img-logo">
+      </a>      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Acerca</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'contacto' %}">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+ 
+
+  <!-- Topbar -->
+  {% block topbar %}
+  <div class="container-fluid bg-primary text-white text-center py-2">
+    <p>Topbar - Información adicional o enlaces rápidos</p>
+  </div>
+  {% endblock %}
+   <!-- Contenido principal -->
+   {% block contenido %}
+    <div class="container mt-4">
+      <!-- Bloque de contenido -->
+      <div class="row">
+        <div class="col">
+          <!-- Aquí puedes agregar el contenido principal de tu página -->
+          <h2>Agenda BNK</h2>
+          <p>Agenda de clientes de BNK sistemas con fotografias</p>
+        </div>
+      </div>
+    </div>
+  {%endblock%}
+  
+  {% block footer %}
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-2 fixed-bottom">
+  <p>Derechos de autor © 2023 realizado por BNK sistemas. Todos los derechos reservados.</p>
+  </footer>
+  {% endblock %}
+
+
+  <!-- Enlaces a los archivos JS de Bootstrap (jQuery y Popper.js son requeridos por Bootstrap) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  {% block js %}
+  {% endblock %}
+</body>
+
+</html>

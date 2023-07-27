@@ -1,0 +1,65 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block topbar %}
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block contenido %}
+
+<h2>Contactos</h2>
+<p>Listado de contactos de la agenda</p>
+
+<div class="container mt-4">
+  <h2>Listado de Contactos</h2>
+  <div class="row">
+    {% for contacto in contactos %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        {% if contacto.imagen %}
+        <img src="{{ contacto.imagen.url }}" class="card-img-top img-fluid" alt="Imagen de {{ contacto.nombre }}"
+          style="max-width: 200px;">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ contacto.nombre }}</h5>
+          <p class="card-text">Dirección: {{ contacto.domicilio }}</p>
+          <p class="card-text">Email: {{ contacto.email }}</p>
+          <p class="card-text">Teléfono: {{ contacto.telefono }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+<!--
+    <h2>Contactos</h2>
+    <div class="contactos">
+        {% for c in contactos %}
+        <div class="contacto">
+            <div class="contenedor_contactos">
+                {% if c.imagen %}
+                    <img src="{{ c.imagen.url }}" alt="imagen contacto">
+                {% endif %}
+                <div class="detalle">
+                    <h2>{{ c.nombre | title }}</h2>
+                    <h3>{{ c.domicilio }}</h3>
+                    <h5>{{ c.email }}</h5>
+                    <h5>{{ c.telefono }}</h5>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+-->
+{% endblock %}
